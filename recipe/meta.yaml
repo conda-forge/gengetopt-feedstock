@@ -20,6 +20,7 @@ requirements:
     - autoconf
     - automake
     - libtool
+    - texinfo
 
 test:
   commands:
@@ -27,7 +28,7 @@ test:
 
 about:
   home: https://www.gnu.org/software/gengetopt/
-  license: GPL
+  license: GPL-3.0-or-later
   license_file: COPYING
   summary: "This program generates a C function that uses getopt_long function to parse the command line options, to validate them and fills a struct."
   doc_url: https://www.gnu.org/software/gengetopt/gengetopt.html

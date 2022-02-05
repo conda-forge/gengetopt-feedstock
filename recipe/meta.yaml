@@ -1,27 +1,27 @@
 {% set name = "gengetopt" %}
-{% set version = "2.22.6" %}
-{% set sha256 = "30b05a88604d71ef2a42a2ef26cd26df242b41f5b011ad03083143a31d9b01f7" %}
+{% set version = "2.23" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: ftp://ftp.gnu.org/gnu/gengetopt/gengetopt-2.22.6.tar.gz
-  sha256: {{ sha256 }}
+  url: ftp://ftp.gnu.org/gnu/gengetopt/gengetopt-{{ version }}.tar.xz
+  sha256: b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac
 
 build:
-  skip: True  # [win]
-  number: 1000
+  skip: true  # [win]
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make  # [unix]
     - autoconf
     - automake
     - libtool
-  host:
+    - texinfo
 
 test:
   commands:
@@ -29,7 +29,7 @@ test:
 
 about:
   home: https://www.gnu.org/software/gengetopt/
-  license: GPL
+  license: GPL-3.0-or-later
   license_file: COPYING
   summary: "This program generates a C function that uses getopt_long function to parse the command line options, to validate them and fills a struct."
   doc_url: https://www.gnu.org/software/gengetopt/gengetopt.html
@@ -38,3 +38,4 @@ about:
 extra:
   recipe-maintainers:
     - j-4
+    - wolfv
